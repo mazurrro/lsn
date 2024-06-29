@@ -8,12 +8,12 @@ public class ListHelper {
         return new TreeSet<>(list);
     }
 
-    public static Integer getMaxElement(List<Integer> list) {
-        return Collections.max(list);
+    public static Integer getMaxElement(Set<Integer> set) {
+        return Collections.max(set);
     }
 
-    public static Integer getMinElement(List<Integer> list) {
-        return Collections.min(list);
+    public static Integer getMinElement(Set<Integer> set) {
+        return Collections.min(set);
     }
 }
 

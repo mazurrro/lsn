@@ -22,30 +22,30 @@ public class ListHelperTest {
 
     @Test
     public void testDistinctAndSortedElements(){
-        List<Integer> sortedList = new ArrayList<>(ListHelper.getDistinctAndSortedElements(list));
-        Assertions.assertEquals(Arrays.asList(1, 2, 5, 10, 20), sortedList);
+        Set<Integer> sortedCollection = ListHelper.getDistinctAndSortedElements(list);
+        Assertions.assertEquals(Set.of(1, 2, 5, 10, 20), sortedCollection);
     }
 
     @Test
     public void testMaxElement(){
-        int max = ListHelper.getMaxElement(list);
+        int max = ListHelper.getMaxElement(new TreeSet<>(list));
         Assertions.assertEquals(20, max);
     }
 
     @Test
     public void testMinElement(){
-        int min = ListHelper.getMinElement(list);
+        int min = ListHelper.getMinElement(new TreeSet<>(list));
         Assertions.assertEquals(1, min);
     }
 
     @Test
     public void testMaxElementWithEmptyList(){
-        Assertions.assertThrows(NoSuchElementException.class, () -> ListHelper.getMaxElement(Collections.emptyList()));
+        Assertions.assertThrows(NoSuchElementException.class, () -> ListHelper.getMaxElement(Collections.emptySet()));
     }
 
     @Test
     public void testMinElementWithEmptyList(){
-        Assertions.assertThrows(NoSuchElementException.class, () -> ListHelper.getMinElement(Collections.emptyList()));
+        Assertions.assertThrows(NoSuchElementException.class, () -> ListHelper.getMinElement(Collections.emptySet()));
     }
 
 }

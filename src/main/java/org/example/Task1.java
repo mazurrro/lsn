@@ -14,14 +14,14 @@ public class Task1 {
             initialList = getData(sc);
         } while (initialList.isEmpty());
 
-        List<Integer> sortedList = new ArrayList<>(ListHelper.getDistinctAndSortedElements(initialList));
-        int maxElement = ListHelper.getMaxElement(sortedList);
-        int minElement = ListHelper.getMinElement(sortedList);
+        Set<Integer> sortedCollection = ListHelper.getDistinctAndSortedElements(initialList);
+        int maxElement = ListHelper.getMaxElement(sortedCollection);
+        int minElement = ListHelper.getMinElement(sortedCollection);
 
         //display data
-        System.out.println(sortedList);
+        System.out.println(sortedCollection);
         System.out.println("count: "+initialList.size());
-        System.out.println("distinct: "+sortedList.size());
+        System.out.println("distinct: "+sortedCollection.size());
         System.out.println("min: "+minElement);
         System.out.println("max: "+maxElement);
 
