@@ -12,9 +12,9 @@ Apache Maven 3.6.3
 To run project:
 1. Open command line and go to the directory with project
 ..\Task1
-2. Run following command:
-mvn clean package - project .jar will be built after command execution
-3. Run command:
-   java -jar target/Task1-1.0.jar - run java application
-4. Provide as a input sample list:
+2. Build package by running following command:
+mvn clean package
+4. Start application - Run command:
+   java -jar target/Task1-1.0.jar
+5. Provide as a input sample list:
    1 10 20 20 2 5
