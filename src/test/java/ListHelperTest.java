@@ -2,11 +2,9 @@ import org.example.ListHelper;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Assertions;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ListHelperTest {
     List<Integer> list = new ArrayList<>();
@@ -23,33 +21,40 @@ public class ListHelperTest {
     }
 
     @Test
-    public void testDistinctElements(){
+    public void testDistinctElements() {
         Set<Integer> distinctElements = ListHelper.getDistinctElements(list);
-        Assert.assertEquals(list.size() - 1, distinctElements.size());
+        Assertions.assertEquals(5, distinctElements.size());
+
     }
 
     @Test
     public void testSortedElements(){
         Set<Integer> distinctElements = ListHelper.getDistinctElements(list);
         List<Integer> sortedList = ListHelper.sortElements(new ArrayList<>(distinctElements));
-        Assert.assertEquals(1, sortedList.get(0).intValue());
-        Assert.assertEquals(2, sortedList.get(1).intValue());
-        Assert.assertEquals(5, sortedList.get(2).intValue());
-        Assert.assertEquals(10, sortedList.get(3).intValue());
-        Assert.assertEquals(20, sortedList.get(4).intValue());
+        Assertions.assertEquals(Arrays.asList(1, 2, 5, 10, 20), sortedList);
 
     }
 
     @Test
     public void testMaxElement(){
         int max = ListHelper.getMaxElement(list);
-        Assert.assertEquals(20, max);
+        Assertions.assertEquals(20, max);
     }
 
     @Test
     public void testMinElement(){
         int min = ListHelper.getMinElement(list);
-        Assert.assertEquals(1, min);
+        Assertions.assertEquals(1, min);
+    }
+
+    @Test
+    public void testMaxElementWithEmptyList(){
+        Assertions.assertThrows(NoSuchElementException.class, () -> ListHelper.getMaxElement(Collections.emptyList()));
+    }
+
+    @Test
+    public void testMinElementWithEmptyList(){
+        Assertions.assertThrows(NoSuchElementException.class, () -> ListHelper.getMinElement(Collections.emptyList()));
     }
 
 }

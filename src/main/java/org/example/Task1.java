@@ -7,7 +7,10 @@ import java.util.stream.Stream;
 public class Task1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> initialList = getData(sc);
+        List<Integer> initialList;
+        do {
+            initialList = getData(sc);
+        } while (initialList.isEmpty());
 
         Set<Integer> distinctElements = ListHelper.getDistinctElements(initialList);
         List<Integer> sortedList = ListHelper.sortElements(new ArrayList<>(distinctElements));
@@ -23,20 +26,16 @@ public class Task1 {
     }
 
     private static List<Integer> getData(Scanner sc) {
-        boolean incorrectInput = true;
-        List<Integer> initialList = new ArrayList<>();
-        while(incorrectInput){
-            System.out.println("Provide list of integers (seperated by space)");
-            incorrectInput = false;
-            try {
-                return Stream.of(sc.nextLine()
-                                .trim()
-                                .split(" "))
-                        .filter(x -> !x.isEmpty())
-                        .map(Integer::parseInt).collect(Collectors.toList());
-            } catch (NumberFormatException ex) {
-                incorrectInput = true;
-            }
+        boolean incorrectInput = false;
+        System.out.println("Provide list of integers (seperated by space)");
+        try {
+            return Stream.of(sc.nextLine()
+                            .trim()
+                            .split(" "))
+                    .filter(x -> !x.isEmpty())
+                    .map(Integer::parseInt).collect(Collectors.toList());
+        } catch (NumberFormatException ex) {
+            System.out.println("Incorrect input!");
         }
         return Collections.emptyList();
     }
