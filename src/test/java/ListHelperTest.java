@@ -21,18 +21,9 @@ public class ListHelperTest {
     }
 
     @Test
-    public void testDistinctElements() {
-        Set<Integer> distinctElements = ListHelper.getDistinctElements(list);
-        Assertions.assertEquals(5, distinctElements.size());
-
-    }
-
-    @Test
-    public void testSortedElements(){
-        Set<Integer> distinctElements = ListHelper.getDistinctElements(list);
-        List<Integer> sortedList = ListHelper.sortElements(new ArrayList<>(distinctElements));
+    public void testDistinctAndSortedElements(){
+        List<Integer> sortedList = new ArrayList<>(ListHelper.getDistinctAndSortedElements(list));
         Assertions.assertEquals(Arrays.asList(1, 2, 5, 10, 20), sortedList);
-
     }
 
     @Test

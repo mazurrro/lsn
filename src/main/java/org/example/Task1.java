@@ -1,5 +1,7 @@
 package org.example;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,8 +14,7 @@ public class Task1 {
             initialList = getData(sc);
         } while (initialList.isEmpty());
 
-        Set<Integer> distinctElements = ListHelper.getDistinctElements(initialList);
-        List<Integer> sortedList = ListHelper.sortElements(new ArrayList<>(distinctElements));
+        List<Integer> sortedList = new ArrayList<>(ListHelper.getDistinctAndSortedElements(initialList));
         int maxElement = ListHelper.getMaxElement(sortedList);
         int minElement = ListHelper.getMinElement(sortedList);
 
@@ -23,6 +24,8 @@ public class Task1 {
         System.out.println("distinct: "+sortedList.size());
         System.out.println("min: "+minElement);
         System.out.println("max: "+maxElement);
+
+        System.out.println();
     }
 
     private static List<Integer> getData(Scanner sc) {
