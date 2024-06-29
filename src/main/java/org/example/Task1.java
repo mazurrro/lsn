@@ -26,7 +26,6 @@ public class Task1 {
     }
 
     private static List<Integer> getData(Scanner sc) {
-        boolean incorrectInput = false;
         System.out.println("Provide list of integers (seperated by space)");
         try {
             return Stream.of(sc.nextLine()
