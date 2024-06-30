@@ -14,6 +14,8 @@ public class Task1 {
             initialList = getData(sc);
         } while (initialList.isEmpty());
 
+        sc.close();
+
         Set<Integer> sortedCollection = ListHelper.getDistinctAndSortedElements(initialList);
         int maxElement = ListHelper.getMaxElement(sortedCollection);
         int minElement = ListHelper.getMinElement(sortedCollection);
