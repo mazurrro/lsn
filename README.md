@@ -10,8 +10,7 @@ Maven:
 Apache Maven 3.6.3
 
 To run project:
-1. Open command line and go to the directory with project
-..\Task1
+1. Open command line and go to the directory with project.
 2. Build package by running following command:
 mvn clean package
 4. Start application - Run command:
